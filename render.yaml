@@ -3,7 +3,7 @@ services:
     name: lloyds-practice
     runtime: ruby
     plan: free
-    buildCommand: "./bin/rails db:prepare && ./bin/rails assets:precompile"
+    buildCommand: "bundle install && ./bin/rails db:prepare && ./bin/rails db:seed && ./bin/rails assets:precompile"
     startCommand: "./bin/rails server -b 0.0.0.0 -p $PORT"
     envVars:
       - key: RAILS_ENV
