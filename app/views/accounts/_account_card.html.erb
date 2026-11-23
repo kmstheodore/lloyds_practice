@@ -1,0 +1,33 @@
+        <div class="bg-white rounded-2xl shadow-xs border border-black/5 overflow-hidden">
+          <div class="p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-base font-bold"><%= @account.name %></p>
+                <p class="text-sm text-[#5C6260] mt-0.5 tabular-nums">
+                  <%= @account.sort_code %> / <%= @account.account_number %>
+                </p>
+              </div>
+              <button type="button" class="text-[#141716] font-bold tracking-widest px-1" aria-label="Account options">
+                ···
+              </button>
+            </div>
+
+            <p class="text-3xl font-extrabold tracking-tight mt-4 tabular-nums">
+              <%= gbp(@account.balance) %>
+            </p>
+
+            <div class="mt-2 space-y-0.5 text-sm text-[#5C6260] tabular-nums">
+              <p>Overdraft limit: <%= gbp(@account.overdraft_limit) %></p>
+              <p>Remaining overdraft: <%= gbp(@remaining_overdraft) %></p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 border-t border-gray-200 divide-x divide-gray-200">
+            <button type="button" class="py-3.5 text-sm font-bold text-center hover:bg-gray-50 active:bg-gray-100">
+              Pay &amp; transfer
+            </button>
+            <button type="button" class="py-3.5 text-sm font-bold text-center hover:bg-gray-50 active:bg-gray-100">
+              Regular payments
+            </button>
+          </div>
+        </div>

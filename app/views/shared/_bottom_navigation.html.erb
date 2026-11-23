@@ -1,0 +1,29 @@
+  <!-- Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 inset-x-0 z-30 pointer-events-none">
+    <div class="max-w-md mx-auto bg-white border-t border-gray-200 pointer-events-auto">
+      <div class="grid grid-cols-5 text-center">
+        <% nav_tabs = [
+          { key: "home", label: "Home", icon: "⌂", active: true },
+          { key: "apply", label: "Apply", icon: "✋", active: false },
+          { key: "payments", label: "Payments", icon: "⇄", active: false },
+          { key: "help", label: "Help", icon: "🔍", active: false },
+          { key: "cards", label: "Cards", icon: "▭", active: false }
+        ] %>
+
+        <% nav_tabs.each do |tab| %>
+          <a
+            href="#<%= tab[:key] %>"
+            data-tab="<%= tab[:key] %>"
+            data-pill-nav-target="navItem"
+            data-action="click->pill-nav#switchBottomNav"
+            class="relative pt-2.5 pb-2 flex flex-col items-center text-xs <%= tab[:active] ? 'font-bold text-[#141716]' : 'font-medium text-[#5C6260] hover:text-[#141716]' %>">
+            <span
+              data-nav-indicator
+              class="absolute top-0 inset-x-3 h-1 rounded-full bg-[#00875A] <%= tab[:active] ? '' : 'hidden' %>"></span>
+            <span class="text-base leading-none mb-1"><%= tab[:icon] %></span>
+            <span><%= tab[:label] %></span>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </nav>
