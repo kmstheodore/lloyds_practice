@@ -1,0 +1,87 @@
+    <!-- APPLY TAB VIEW -->
+    <div data-pill-nav-target="panel" data-tab="apply" class="hidden">
+      <header class="sticky top-0 z-20 bg-[#F3F4F3]/95 backdrop-blur px-4 pt-5 pb-3">
+        <div class="flex items-center justify-between">
+          <h1 class="text-2xl font-bold tracking-tight">Apply</h1>
+          <button type="button" class="p-1 text-[#141716]" aria-label="Profile settings">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 7.5a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.118a7.5 7.5 0 0115 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <% apply_items = [
+        { id: "savings", title: "Savings", icon: "🐷", summary: "Compare easy access and fixed-term savings accounts." },
+        { id: "investments", title: "Investments", icon: "🐷", summary: "Explore ready-made funds and investment accounts." },
+        { id: "pensions", title: "Pensions", icon: "✈", summary: "Review pension options and retirement planning tools." },
+        { id: "loans-and-car-finance", title: "Loans and Car finance", icon: "📅", summary: "Check personal loan rates and car finance options." },
+        { id: "wealth-management", title: "Wealth Management", icon: "🔒", summary: "Dedicated support and portfolio options for higher balances." },
+        { id: "home-insurance", title: "Home Insurance", icon: "🔒", summary: "Get a quote for buildings, contents, or combined home cover." },
+        { id: "life-insurance", title: "Life Insurance", icon: "🔒", summary: "Compare term and whole life cover options tailored to your needs." },
+        { id: "family-finances", title: "Family Finances", icon: "💳", summary: "Tools and accounts to help manage household budgets and family expenses." },
+        { id: "overdrafts", title: "Overdrafts", icon: "£", summary: "Check eligibility or request a change to your arranged overdraft limit." },
+        { id: "current-accounts", title: "Current accounts", icon: "📁", summary: "Open a new everyday account or switch your main bank account." },
+        { id: "credit-cards", title: "Credit cards", icon: "💳", summary: "See credit card options and check soft-search eligibility." },
+        { id: "mortgages", title: "Mortgages", icon: "🏠", summary: "Explore mortgage rates, remortgaging, and borrowing estimates." },
+        { id: "motor-insurance", title: "Motor Insurance", icon: "🔒", summary: "Get a quote for car or van cover with optional extras." },
+        { id: "pet-insurance", title: "Pet Insurance", icon: "🌐", summary: "Cover vet bills and care costs for cats and dogs." },
+        { id: "health-insurance", title: "Health Insurance", icon: "🌐", summary: "Explore private medical cover and wellbeing support." },
+        { id: "your-credit-score", title: "Your Credit Score", icon: "£", summary: "View your credit report and tips to keep your score healthy." },
+        { id: "business-banking", title: "Business Banking", icon: "🌐", summary: "Accounts and tools designed for sole traders and limited companies." }
+      ] %>
+
+      <main class="px-4 pt-1 pb-6 space-y-4">
+        <!-- Top 2-column quick action tiles -->
+        <div class="grid grid-cols-2 gap-3">
+          <button
+            type="button"
+            class="bg-white rounded-2xl px-4 py-7 border border-black/5 shadow-2xs flex flex-col items-center justify-center text-center hover:bg-gray-50 active:bg-gray-100">
+            <span class="w-12 h-12 rounded-full bg-[#A5A6F6] text-[#141716] flex items-center justify-center text-sm font-extrabold mb-4">
+              £
+            </span>
+            <span class="text-base font-bold leading-snug text-[#141716]">
+              Manage your overdraft
+            </span>
+          </button>
+
+          <button
+            type="button"
+            class="bg-white rounded-2xl px-4 py-7 border border-black/5 shadow-2xs flex flex-col items-center justify-center text-center hover:bg-gray-50 active:bg-gray-100">
+            <span class="w-12 h-12 rounded-full bg-[#A5A6F6] text-[#141716] flex items-center justify-center text-base font-bold mb-4">
+              ▭
+            </span>
+            <span class="text-base font-bold leading-snug text-[#141716]">
+              Credit card eligibility checker
+            </span>
+          </button>
+        </div>
+
+        <!-- Expandable product list -->
+        <div class="space-y-2.5">
+          <% apply_items.each do |item| %>
+            <div class="bg-white rounded-xl border border-black/5 shadow-2xs overflow-hidden">
+              <button
+                type="button"
+                aria-expanded="false"
+                aria-controls="apply-details-<%= item[:id] %>"
+                data-action="click->pill-nav#toggleRow"
+                class="w-full px-4 py-4 flex items-center justify-between text-left hover:bg-gray-50 active:bg-gray-100">
+                <div class="flex items-center gap-4">
+                  <span class="w-7 h-7 rounded-md border border-[#141716] flex items-center justify-center text-xs font-bold shrink-0">
+                    <%= item[:icon] %>
+                  </span>
+                  <span class="text-base font-medium text-[#141716]"><%= item[:title] %></span>
+                </div>
+                <span data-plus-icon class="text-xl font-normal text-[#141716] leading-none px-1">+</span>
+              </button>
+
+              <div id="apply-details-<%= item[:id] %>" class="hidden px-4 pb-4 pt-1 border-t border-gray-100 text-sm text-[#5C6260]">
+                <p><%= item[:summary] %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </main>
+    </div>
+

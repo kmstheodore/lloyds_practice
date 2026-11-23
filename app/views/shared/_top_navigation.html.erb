@@ -1,0 +1,43 @@
+    <!-- Top Header for Home / Pill Tabs -->
+    <header data-pill-nav-target="panel" data-tab="home-header" class="sticky top-0 z-20 bg-[#F3F4F3]/95 backdrop-blur px-4 pt-4 pb-3 border-b border-black/5">
+      <div class="flex items-center justify-between mb-4">
+        <button type="button" class="p-1 text-[#141716]" aria-label="Messages">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10l2.4-6h13.2L21 10M3 10h5l1.5 3h5L16 10h5M3 10v8a2 2 0 002 2h14a2 2 0 002-2v-8" />
+          </svg>
+        </button>
+
+        <h1 class="text-xl font-bold tracking-tight">Good afternoon Theodore</h1>
+
+        <button type="button" class="p-1 text-[#141716]" aria-label="Profile settings">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 7.5a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.118a7.5 7.5 0 0115 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+          </svg>
+        </button>
+      </div>
+
+      <% pills = [
+        { key: "summary", label: "Summary", active: true },
+        { key: "everyday", label: "Everyday", active: false },
+        { key: "save_invest", label: "Save & Invest", active: false },
+        { key: "borrow", label: "Borrow", active: false },
+        { key: "homes", label: "Homes", active: false },
+        { key: "insure", label: "Insure", active: false }
+      ] %>
+
+      <div class="-mx-4 px-4 overflow-x-auto no-scrollbar scroll-smooth">
+        <div class="flex items-center gap-2.5 w-max pr-4">
+          <% pills.each do |pill| %>
+            <button
+              type="button"
+              data-tab="<%= pill[:key] %>"
+              data-pill-nav-target="pill"
+              data-action="click->pill-nav#select"
+              class="shrink-0 h-11 px-5 rounded-full border text-sm font-semibold whitespace-nowrap transition-colors <%= pill[:active] ? 'bg-[#141716] text-white border-[#141716]' : 'bg-white text-[#141716] border-[#2A2F2D]' %>">
+              <%= pill[:label] %>
+            </button>
+          <% end %>
+        </div>
+      </div>
+    </header>
+

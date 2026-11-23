@@ -1,0 +1,109 @@
+    <!-- SUMMARY TAB VIEW -->
+    <main data-pill-nav-target="panel" data-tab="summary" class="px-4 pt-4 space-y-4">
+
+      <section class="bg-white rounded-2xl shadow-xs border border-black/5 overflow-hidden">
+        <div class="p-4">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold">Everyday</h2>
+            <span class="text-xl text-[#141716]">&rarr;</span>
+          </div>
+
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-lg border border-gray-200 flex items-center justify-center text-lg shrink-0">
+                🐎
+              </div>
+              <div>
+                <p class="text-sm font-bold leading-snug"><%= @account.name %></p>
+                <p class="text-xs text-[#5C6260] leading-snug tabular-nums"><%= @account.sort_code %> /</p>
+                <p class="text-xs text-[#5C6260] leading-snug tabular-nums"><%= @account.account_number %></p>
+              </div>
+            </div>
+
+            <p class="text-xl font-extrabold tracking-tight tabular-nums whitespace-nowrap">
+              <%= gbp(@account.balance) %>
+            </p>
+          </div>
+        </div>
+
+        <a href="#premier" class="flex items-center justify-between px-4 py-3.5 border-t border-gray-200 text-sm font-semibold hover:bg-gray-50">
+          <span>Upgrade to Lloyds Premier now</span>
+          <span class="text-lg">&rarr;</span>
+        </a>
+      </section>
+
+      <section class="bg-white rounded-2xl p-4 shadow-xs border border-black/5 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3.5">
+          <div class="w-14 h-14 rounded-xl bg-[#E8F7EE] text-[#00875A] flex items-center justify-center text-2xl shrink-0">
+            🪙
+          </div>
+          <div>
+            <h3 class="text-base font-bold leading-snug">Banking and beyond</h3>
+            <p class="text-sm text-[#5C6260] leading-snug mt-0.5">
+              New ways to boost, borrow and balance your money
+            </p>
+          </div>
+        </div>
+        <span class="text-[#141716] text-lg shrink-0">&rsaquo;</span>
+      </section>
+
+      <section class="bg-white rounded-2xl p-4 shadow-xs border border-black/5">
+        <div class="flex items-center gap-1.5 mb-3">
+          <h3 class="text-base font-bold">Rewards</h3>
+          <span class="px-2.5 py-0.5 rounded-full bg-[#00875A] text-white text-[11px] font-bold tracking-wide">
+            <%= @account.rewards_count %> NEW
+          </span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="flex -space-x-2 shrink-0">
+            <span class="w-10 h-10 rounded-full bg-black text-amber-300 text-[10px] font-bold flex items-center justify-center ring-2 ring-white">AM</span>
+            <span class="w-10 h-10 rounded-full bg-[#24476B] text-white text-[9px] font-bold flex items-center justify-center ring-2 ring-white">RANDO</span>
+            <span class="w-10 h-10 rounded-full bg-white text-[#0668E1] text-[10px] font-extrabold flex items-center justify-center ring-2 ring-white border border-gray-200">∞</span>
+          </div>
+          <p class="text-sm text-[#5C6260] leading-snug">
+            Get rewards, cashback, benefits and more.
+          </p>
+        </div>
+      </section>
+
+      <section class="bg-[#56C271] rounded-2xl p-5 text-[#141716] flex items-center justify-between gap-3 shadow-xs">
+        <div class="space-y-2 max-w-[65%]">
+          <h3 class="text-lg font-extrabold leading-snug">Future you says thanks</h3>
+          <p class="text-sm leading-snug font-medium">
+            Lock in Life Cover early. It's not just for the boomers.
+          </p>
+        </div>
+
+        <div class="w-20 h-20 rounded-full bg-white/30 flex items-center justify-center text-3xl shrink-0">
+          🌱
+        </div>
+      </section>
+
+      <section class="bg-white rounded-2xl p-4 shadow-xs border border-black/5 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-14 rounded-lg bg-[#141716] text-white flex flex-col items-center justify-center px-1 shrink-0">
+            <span class="text-xs font-extrabold tracking-tight leading-none">fscs</span>
+            <span class="text-[8px] font-bold uppercase tracking-wider mt-1">PROTECTED</span>
+          </div>
+          <p class="text-sm text-[#5C6260] leading-snug">
+            See how your money is protected
+          </p>
+        </div>
+        <span class="text-[#141716] text-lg shrink-0">&rsaquo;</span>
+      </section>
+
+      <div class="pt-2 pb-1 flex justify-center">
+        <button type="button" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#141716] bg-[#F3F4F3] text-sm font-bold hover:bg-white">
+          <span>Customise</span>
+          <span>✎</span>
+        </button>
+      </div>
+
+      <footer class="pt-4 pb-6 text-center space-y-2 text-[#5C6260]">
+        <div class="text-3xl text-[#006A4D]">🐎</div>
+        <p class="text-sm font-medium">All caught up</p>
+      </footer>
+
+    </main>
+

@@ -1,0 +1,10 @@
+    <!-- PLACEHOLDER PANELS FOR OTHER TABS -->
+    <% %w[save_invest borrow homes insure payments help cards].each do |other_tab| %>
+      <main data-pill-nav-target="panel" data-tab="<%= other_tab %>" class="hidden px-4 pt-6">
+        <div class="bg-white rounded-2xl p-6 text-center border border-black/5">
+          <p class="text-base font-bold capitalize"><%= other_tab.tr("_", " ") %></p>
+          <p class="text-sm text-[#5C6260] mt-1">Ready for you to build next.</p>
+        </div>
+      </main>
+    <% end %>
+
